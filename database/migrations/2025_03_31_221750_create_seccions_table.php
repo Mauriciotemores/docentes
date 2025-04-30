@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('secciones', function (Blueprint $table) {
             $table->id('id_seccion');
-            $table->unsignedBigInteger('id_docente'); // Columna sin FK inicialmente
+            $table->unsignedBigInteger('id_docente');
             
             $table->string('nombre');
             $table->string('nrc')->unique();
@@ -21,7 +21,6 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        // Agregar la FK en una operación separada
         Schema::table('secciones', function (Blueprint $table) {
             $table->foreign('id_docente')
                   ->references('id_docente')
